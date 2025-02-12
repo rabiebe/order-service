@@ -14,9 +14,13 @@ import lombok.Data;
 
 @RestController
 @RequestMapping("/orders")
-@Data
+
 public class OrderController {
     private final OrderService orderService;
+
+    public OrderController(OrderService orderService){
+        this.orderService = orderService;
+    }
 
     @PostMapping
     public void createOrder(@RequestBody Order order) {
